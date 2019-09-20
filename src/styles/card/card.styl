@@ -1,0 +1,55 @@
+@require 'variables'
+
+.b-card-containers
+  align-items flex-end
+  display flex
+  flex-direction column
+  &--horizontal-center
+    width 485px
+
+.b-card
+  font-family $roboto
+  font-size 14px
+  margin-bottom 15px
+  width 280px
+  &--horizontal,
+  &--top, 
+  &--horizontal-center,
+  &--vertical-center,
+  &--vertical-middle
+    display  flex
+  &--horizontal
+    flex-direction column-reverse
+    width 485px
+  &--top, &--horizontal-center
+    align-items flex-end
+    flex-direction column-reverse
+    width 485px
+  &--horizontal-center
+    flex-direction row
+    width 615px
+  &--vertical-center
+    flex-direction column
+  &--vertical-middle
+    align-items flex-end
+    flex-direction column
+  &__body
+    background #fafafa
+    border-radius 5px
+    display flex
+    flex-direction column
+    &--horizontal
+      flex-direction initial
+      width 485px
+    &--top
+      flex-direction row
+      flex-wrap wrap
+      padding 20px
+    &--horizontal-center,
+    &--vertical-center
+      align-items center
+      order 1
+      padding 20px
+    &--vertical-middle
+      flex-direction row
+      padding 20px

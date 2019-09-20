@@ -1,15 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const pathClient = path.join(__dirname, '../../source/scripts');
-const publicPath = '/';
+const pathClient = path.join(__dirname, '../../src/scripts');
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   entry: {
-    'app': path.join(pathClient, '/index.ts')
+    'app': path.join(pathClient, '/index.js')
   },
   resolve: {
-    extensions: ['.ts','.js', '.styl'],
+    extensions: ['.js', '.styl'],
     alias: {
       '@app': pathClient
     }
@@ -22,8 +21,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash].[ext]',
-              publicPath
+              name: '[name].[hash].[ext]'
             }
           }
         ]
@@ -35,33 +33,24 @@ module.exports = {
       {
         test: /\.styl$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "stylus-loader"
+          { loader: 'style-loader'},
+          { loader: 'css-loader'},
+          { loader: 'postcss-loader'},
+          { loader: 'stylus-loader'}
         ]
       },
       {
         enforce: 'pre',
-        test: /\.tsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'awesome-typescript-loader'
-          }
-        ]
+        loader: ['babel-loader']
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'source/view/index.pug',
-      inject: false
+      template: 'src/view/index.pug'
     })
   ]
 }

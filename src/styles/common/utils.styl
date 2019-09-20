@@ -1,0 +1,39 @@
+* 
+  box-sizing border-box
+
+body 
+  background repeating-linear-gradient(45deg, rgba(237,60,100,1) 0%, rgba(247,184,68,1) 100%)
+  left 0
+  margin 0
+  position relative
+  width 100%
+
+section 
+  margin-top 40px
+
+.row
+  display flex
+  flex-wrap wrap
+
+.col-4
+  width 25%
+
+.col-2
+  width 50%
+
+.u-center-box
+  margin-left auto
+  margin-right auto
+  max-width 1200px
+  padding 0 10px
+
+.b-container
+  display flex
+  justify-content center
+
+@media (max-width: 1045px)
+  .col-4, .col-2
+    width 100%
+  .col-2
+    .b-container
+      display none

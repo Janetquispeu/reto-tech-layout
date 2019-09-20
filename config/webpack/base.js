@@ -21,7 +21,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash].[ext]'
+              name: 'src/img/[name].[hash].[ext]',
+              publicPath: '/'
             }
           }
         ]

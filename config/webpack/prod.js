@@ -8,6 +8,7 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     path: path.join(outputPath, 'dist/'),
+    publicPath: '/',
     filename:'[name].[hash].js',
     chunkFilename: '[name].[hash].js'
   },

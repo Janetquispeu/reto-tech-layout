@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const pathClient = path.join(__dirname, '../../src/scripts');
 
 module.exports = {
@@ -21,7 +22,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'src/img/[name].[hash].[ext]',
+              name: '[name].[hash].[ext]',
               publicPath: '/'
             }
           }
@@ -52,6 +53,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/view/index.pug'
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: './src/img',
+      to: ''
+    }]), 
   ]
 }

@@ -7,7 +7,7 @@ const outputPath = path.join(__dirname, '../../');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    path: path.join(outputPath, 'dist/public'),
+    path: path.join(outputPath, 'dist/'),
     filename:'[name].[hash].js',
     chunkFilename: '[name].[hash].js'
   },
